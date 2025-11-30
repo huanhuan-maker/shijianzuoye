@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桂林网</title>
+    <link rel="icon" href="guilin.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5047729_fz0degkez2d.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+</head>
+<body>
+    <div class="top-bar">
+        <div class="cotainer">
+            <div class="logo">
+                <img src="image/logo-2-1.17ef4ac1.jpg"/>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <a href="index.html">首页</a>
+                    <a href="play.html">游玩桂林</a>
+                    <a class="active" href="/travel.html">旅游资讯</a>
+                    <a href="culture.html">文化桂林</a>
+                    <a href="/011/index.html">专业团队</a>
+                    <i class="iconfont icon-sousuo search"></i>
+                </ul>
+            </div>
+            <div class="user-actions">
+                <div class="user-menu">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-menu-content" id="userMenu">
+                        <a href="#" id="loginLink">登录</a>
+                        <a href="#" id="registerLink">注册</a>
+                        <a href="#" id="profileLink">个人中心</a>
+                        <a href="#" id="logoutLink">退出登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image/1.jpg" alt="Slider 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/2.jpg" alt="Slider 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/3.jpg" alt="Slider 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/4.jpg" alt="Slider 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/5.jpg" alt="Slider 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/6.jpg" alt="Slider 6">
+                </div>
+                
+            </div>
+            <!-- 轮播图导航按钮 -->
+            <div class="indicators-container">
+                <div class="indicator" data-index="0" onclick="cyclePlay(0)"></div>
+                <div class="indicator active" data-index="1" onclick=cyclePlay(1)></div>
+                <div class="indicator" data-index="2" onclick="cyclePlay(2)"></div>
+                <div class="indicator" data-index="3" onclick="cyclePlay(3)"></div>
+                <div class="indicator" data-index="4" onclick="cyclePlay(4)"></div>
+                <div class="indicator" data-index="5" onclick="cyclePlay(5)"></div>
+            </div>
+        </div>        
+    </div>
+    <audio autoplay="autopaly" loop="loop" id="audios" preload="auto">
+        <source src="http://music.163.com/song/media/outer/url?id=526464145.mp3" />
+    </audio>
+    <script>
+        const carousel = document.querySelector('.carousel-inner');
+        const imgCount = document.querySelectorAll('.carousel-item img').length;
+        let currentIndex = 0;
+        const indicators = document.querySelectorAll('.indicator');
+    //循环播放
+    function cyclePlay(index) {
+        if (index !== undefined) currentIndex = index;
+        else currentIndex = (currentIndex+1) % imgCount;
+        console.log(currentIndex)
+        carousel.style.transform = `translateY(-${currentIndex * 100}%)`;
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        indicators[currentIndex].classList.add('active');
+    }
+    //启动轮播图
+    const interval = setInterval(cyclePlay, 5000)
+    // 停止自动轮播（鼠标悬停）
+    document.querySelector('.carousel-inner').addEventListener('mouseenter', () => {
+        clearInterval(interval);
+    });
+    // 恢复自动轮播（鼠标离开）
+    document.querySelector('.carousel-inner').addEventListener('mouseleave', () => {
+        const interval = setInterval(cyclePlay, 5000);
+    });
+    
+    </script>
+    <!--第一部分内容-->
+    <div class="floor">
+        <div class="content-one">
+            <!-- 视频播放区域 -->
+            <div class="video-container">
+                <div class="video-item">
+                    <video src="video/1.mp4" controls></video>
+                </div>
+                <ul class="video-container">
+                    <li class="video-indicator-item"></li>
+                </ul>
+            </div>
+            <div class="content-list">
+                <!-- 资讯 -->
+                <div class="content-item">
+                    <div class="title">
+                        <div class="title-left">
+                            <img src="image/7.jpg">
+                            <span class="ch-name">乱说资讯</span>
+                            <span class="en-name">LuanShuo</span>                    
+                        </div>
+                        <a class="more">查看更多</a>
+                    </div>
+                    <div class="list-container">
+                        <div class="list-item">
+                            <p><a href="video.html" target="_blank">美丽的小姐，我是BOY，GGbond</a></p>
+                            <span>2025-11-7-10:00</span>
+                        </div>
+                        <div class="list-item">
+                            <p>我始终认为爱一个人就应该只爱一个人，如果爱上其他人，那就是不爱</p>
+                            <span>2025-11-7-10:08</span>
+                        </div>
+                        <div class="list-item">
+                            <p>你问我为什么顽固而专一</p>
+                            <span>2025-11-7-10:15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="title">
+                        <div class="title-left">
+                            <img src="image/8.jpg">
+                            <span class="ch-name">爱你没差</span>
+                            <span class="en-name">Loving you No difference</span>
+                        </div>
+                        <a class="more">查看更多</a>
+                    </div>
+                    <div class="item-list">
+                        <div class="list-container">
+                            <div class="list-item">
+                                <p><a href="http://www.baidu.com/" target="_parent">我占据格林威治守候着你，在时间标准起点回忆过去</a></p>
+                                <span>2025-11-7-10:20</span>
+                            </div>
+                            <div class="list-item">
+                                <p>你却在永夜的极地里旅行，等爱在失温后渐渐死去</p>
+                                <span>2025-11-7-10:30</span>
+                            </div>
+                            <div class="list-item">
+                                <p>喔对不起，这句话打乱了时区；喔你要我在最爱的时候睡去，我越想越清醒</p>
+                                <span>2025-11-7-10:49</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+     <footer>
+        <div class="foot_container">
+            <div class="foot_list">
+               <img src="image/9.jpg"alt=""/>
+               <div class="list_info" >
+                     <p>地址：桂林旅游学院南区宿舍</p>
+                     <p>电话：66666666 传真：6666666</p>
+                     <p>版权所有：欢欢 桂ICP备05001058号-6</p>
+               </div>
+               <div class="foot_wx">
+                    <div class="wx_font">
+                        <p>微</p>
+                        <p>信</p>
+                        <p>扫</p>
+                        <p>一</p>
+                        <p>扫</p>
+                    </div>
+                    <img src="image/10.jpg">
+               </div>
+            </div>
+        </div>
+     </footer>
+</body>
+</html>
